@@ -15,10 +15,11 @@ public:
 	}
 
 	void setNumeLibrarie(const char* numeLibrarie) {
-		if (strlen(numeLibrarie)>0)
+		if (strlen(numeLibrarie) > 0)
 		{
 			this->numeLibrarie = new char[strlen(numeLibrarie) + 1];
 			strcpy_s(this->numeLibrarie, strlen(numeLibrarie) + 1, numeLibrarie);
+			
 
 		}
 
@@ -32,6 +33,7 @@ public:
 		if (numeLibrar != nullptr) {
 			this->numeLibrar = new char[strlen(numeLibrar) + 1];
 			strcpy_s(this->numeLibrar, strlen(numeLibrar) + 1, numeLibrar);
+		
 
 
 		}
@@ -47,10 +49,28 @@ public:
 	void setNrCarti(int nrCarti) {
 		if (nrCarti > 0) {
 			this->nrCarti = nrCarti;
+
+
 		}
 
 	}
 
+
+	~Librarie() {
+		if (this->numeLibrarie != NULL) {
+			delete[]this->numeLibrarie;
+		}
+}
+
+		Librarie() {
+			this->numeLibrarie = new char[strlen("Libraria Piticii") + 1];
+			strcpy_s(this->numeLibrarie, strlen("Libraria Piticii") + 1, numeLibrarie);
+			this->numeLibrar = new char[strlen(numeLibrar) + 1];
+			strcpy_s(this->numeLibrar, strlen("Andreea Marin") + 1, numeLibrar);
+			this->nrCarti = 25;
+		}
+
+	
 };
 void main() {
 	Librarie librarie;
@@ -61,6 +81,7 @@ void main() {
 	cout << "Libraria " << librarie.getNumeLibrarie() << " are ca librar astazi pe " << librarie.getNumeLibrar() << endl;
 
 	librarie.setNrCarti(10);
-	cout << "Libraria " << librarie.getNumeLibrarie() << " are ca librar astazi pe " << librarie.getNumeLibrar() << "si are in stoc " << librarie.getNrCarti() << " carti." << endl;
+	cout << "Libraria " << librarie.getNumeLibrarie() << " are ca librar astazi pe " << librarie.getNumeLibrar() << " si are in stoc " << librarie.getNrCarti() << " carti." << endl;
 
+	Librarie  Librarie();
 }
