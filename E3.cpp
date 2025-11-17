@@ -52,7 +52,15 @@ public:
 		strcpy_s(this->producator, strlen(a.producator) + 1, a.producator);
 	}
 
+	bool operator>(const Autobuz& a) {
+		return this->capacitate > a.capacitate;
+	}
 
+	friend ostream& operator<<(ostream& oStream, const Autobuz& autobuz);
+
+	operator int() {
+		return this->nrPersoaneImbarcate;
+	}
 
 	int getCapacitate() {
 		return this->capacitate;
@@ -78,7 +86,9 @@ public:
 		cout << endl;
 	}
 
-
+	int getNumarLocuriLibere() {
+		return this->capacitate - this->nrPersoaneImbarcate;
+	}
 
 	~Autobuz() {
 		if (this->producator != nullptr) {
@@ -88,7 +98,15 @@ public:
 
 };
 
+int Autobuz::nrAutobuze = 0;
 
+ostream& operator<<(ostream& oStream, const Autobuz& autobuz) {
+	oStream << "Id autobuz: " << autobuz.idAutobuz << "; "
+		<< "Capacitate: " << autobuz.capacitate << "; "
+		<< "Nr. persoane imbarcate: " << autobuz.nrPersoaneImbarcate << "; "
+		<< "Producator: " << autobuz.producator;
+	return oStream;
+}
 
 int main() {
 
@@ -101,15 +119,33 @@ int main() {
 	cout << endl;
 
 	Autobuz autobuz2;
-
+	//autobuz2.afisare();
 	cout << "Numar initial de persoane imbarcate in autobuz 2: " << autobuz2.getNrPersoaneImbarcate() << endl;
 	autobuz2.setNrPersoaneImbarcate(3);
 	cout << "Numar nou de persoane imbarcate in autobuz 2: " << autobuz2.getNrPersoaneImbarcate() << endl;
 
 	Autobuz autobuz3;
 	autobuz3 = autobuz1;
-	
+	//autobuz1.afisare();
+	//autobuz2.afisare();
+	//autobuz3.afisare();
 
+	cout << autobuz1 << endl;
+	cout << autobuz2 << endl;
+	cout << autobuz3 << endl;
 
+	cout << "Locuri libere in autobuz: " << autobuz1.getNumarLocuriLibere() << endl;
 
+	int nrPersAutobuz1 = autobuz1;
+
+	cout << "Numar persoane autobuz 1: " << nrPersAutobuz1 << endl;
+
+	cout << "Dintre autobuzele 1 si 2, care are capacitatea mai mare?" << endl;
+
+	if (autobuz1 > autobuz2) {
+		cout << "Capacitatea autobuzului 1 este mai mare." << endl;
+	}
+	else {
+		cout << "Capacitatea autobuzului 2 este mai mare sau egala." << endl;
+	}
 }
