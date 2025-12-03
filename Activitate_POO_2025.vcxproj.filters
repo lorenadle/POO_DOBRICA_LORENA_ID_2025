@@ -24,5 +24,8 @@
     <ClCompile Include="E8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
