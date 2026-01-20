@@ -196,6 +196,20 @@ public:
 		}
 
 	}
+
+
+	// calcul
+		float mediePreturi() {
+		if (preturiCafea = nullptr && nrTipuriCafea <1) {
+			return 0;
+		}
+		float suma = 0;
+		for (int i = 0; i < nrAbonati; i++) {
+			suma =+preturiCafea[i];
+
+		}
+		return suma/nrAbonati;
+	}
 };
 void main() {
 	Cafenea cafenea1;
@@ -247,4 +261,5 @@ void main() {
 		cout << "Eroare: " << e.what();
 	}
 
+	cafenea3.mediePreturi();
 }
