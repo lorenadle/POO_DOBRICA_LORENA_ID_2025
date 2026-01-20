@@ -185,6 +185,17 @@ public:
 		return out;
 
 	}
+
+	// operator index 
+	int operator[](int index) {
+		if (index >= 0 && preturiCafea != nullptr) {
+			return this->preturiCafea[index];
+		}
+		else {
+			throw "index nu e interval";
+		}
+
+	}
 };
 void main() {
 	Cafenea cafenea1;
@@ -229,5 +240,11 @@ void main() {
 	cout << endl << cafenea6() << endl;
 	cout << cafenea1;
 
+	try {
+		cout << endl << cafenea3[1];
+	}
+	catch (exception& e) {
+		cout << "Eroare: " << e.what();
+	}
 
 }
